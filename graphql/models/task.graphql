@@ -1,0 +1,13 @@
+type Task {
+    id: ID!
+    name: String!
+#    user: User! @belongsTo
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+extend type Query {
+    tasks: [Task!]! @paginate
+    task(id: ID @eq): Task @find
+}
+
